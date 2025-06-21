@@ -7,9 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/1_eDJJse4ELBvC_3bcgLD6lV4bvGt_zxC
 """
 
-!pip install streamlit pyngrok
+pip install streamlit pyngrok
 
-!pip install pdfplumber python-docx pytesseract Pillow transformers torch spacy streamlit pyngrok
+pip install pdfplumber python-docx pytesseract Pillow transformers torch spacy streamlit pyngrok
 !python -m spacy download en_core_web_sm
 
 import streamlit as st
@@ -121,14 +121,14 @@ if uploaded_file:
     except Exception as e:
         st.error(f"❌ Error processing file: {str(e)}")
 
-!pip install streamlit
+pip install streamlit
 
-!pip install pyngrok
+pip install pyngrok
 
-!pip install --user streamlit
+pip install --user streamlit
 
 # Step 1: Install everything needed
-!pip install --quiet --user streamlit pyngrok pdfplumber python-docx pytesseract Pillow transformers torch
+pip install --quiet --user streamlit pyngrok pdfplumber python-docx pytesseract Pillow transformers torch
 !python -m spacy download en_core_web_sm
 
 # Save your script (replace with your actual Streamlit code if needed)
@@ -251,61 +251,10 @@ public_url = ngrok.connect(8501)
 print("✅ Streamlit app is live at:", public_url)
 
 # Commented out IPython magic to ensure Python compatibility.
-!mkdir -p metadata-generator-app
+mkdir -p metadata-generator-app
 # %cd metadata-generator-app
 
-!mkdir metadata-generator-app
+mkdir metadata-generator-app
 
-!mv app.py metadata-generator-app/
+mv app.py metadata-generator-app/
 
-with open("metadata-generator-app/requirements.txt", "w") as f:
-    f.write("""
-streamlit
-pdfplumber
-python-docx
-pytesseract
-Pillow
-transformers
-torch
-spacy
-en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
-""")
-
-with open("metadata-generator-app/README.md", "w") as f:
-    f.write("""\
-# 📄 Metadata Generator App
-
-This is a Streamlit web app that lets users upload `.pdf`, `.docx`, `.txt`, or image files and automatically generates metadata such as:
-- 📌 Summary (using transformers)
-- 🔑 Keywords (using spaCy)
-- 🕓 Creation Date
-- 📁 Document type
-
----
-
-## 🚀 How to Run Locally
-
-### 1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/metadata-generator-app.git
-cd metadata-generator-app
-
-## Features
-
-- Extract text from PDF, Word, TXT, or image
-- Generate keywords using spaCy
-- Summarize using transformers
-- View metadata in a user-friendly UI
-""")
-
-# push to github
-cd metadata-generator-app
-git init
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-git add .
-git commit -m "Initial commit"
-git push -u origin main
-
-# zip the folder
-!zip -r metadata-generator-app.zip metadata-generator-app
